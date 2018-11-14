@@ -1,0 +1,86 @@
+# ====================
+# | Model parameters |
+# ====================
+#
+# Continuous equation parameters
+ &PARM01
+# tRef=289.6, 298.1, 314.5, 335.8, 437.4,
+# tRef=286.0,288.0,290.0,292.0,295.0,298.0,301.0,304.0,307.0,310.0,
+#      313.0,316.0,319.5,323.0,327.5,332.0,343.0,356.0,396.0,440.0,
+#  tRef=286.0,290.22,295.67,302.0,308.33,314.67,321.83,331.00,354.56,440.0,
+  tRef=295.0,305.22,315.67,319.0,325.33,329.67,345.83,365.00,388.56,475.0,
+# sRef=5*0.,
+# sRef=20*0.,
+ sRef=10*0.,
+ no_slip_sides=.FALSE.,
+ no_slip_bottom=.FALSE.,
+ buoyancyRelation='ATMOSPHERIC',
+ eosType='IDEALG',
+ atm_Rq=0.6078E-3,
+ integr_GeoPot=2,
+ selectFindRoSurf=1,
+ atm_Po=1.0E5,
+ gravity=9.81,
+# 1 day rotation period
+ rotationPeriod=86400.,
+ rhoConstFresh=1000.,
+ implicitFreeSurface=.TRUE.,
+ exactConserv=.TRUE.,
+ select_rStar=2,
+ nonlinFreeSurf=4,
+ hFacInf=0.2,
+ hFacSup=2.0,
+ uniformLin_PhiSurf=.FALSE.,
+ hFacMin=0.2,
+ saltAdvScheme=3,
+ vectorInvariantMomentum=.TRUE.,
+ useJamartWetPoints=.TRUE.,
+ staggerTimeStep=.TRUE.,
+ readBinaryPrec=64,
+ writeBinaryPrec=64,
+ useSingleCpuIO=.TRUE.,
+ &
+
+# Elliptic solver parameters
+ &PARM02
+ cg2dMaxIters=200,
+#cg2dTargetResidual=1.E-12,
+ cg2dTargetResWunit=1.E-17,
+ &
+
+# Time stepping parameters
+ &PARM03
+ nIter0=0,
+# nTimeSteps=10,
+# 10 day:
+# endTime=864000.,
+# 30 day:
+# endTime=2592000.,
+# 1 year:
+ endTime=31104000.0
+# 25yr:
+# endTime=777600000.,
+ deltaT=450.0,
+ abEps=0.1,
+ forcing_In_AB=.FALSE.,
+ cAdjFreq=0.,
+ pChkptFreq=2592000.,
+ taveFreq=2592000.,
+ dumpFreq=7776000.,
+ monitorFreq=2592000.,
+ monitorFreq=2592000.,
+ &
+
+# Gridding parameters
+ &PARM04
+ usingCurvilinearGrid=.TRUE.,
+ radius_fromHorizGrid=6370.E3,
+# delR=100.E2, 250.E2, 300.E2, 200.E2, 150.E2,
+# delR=20*5054.,
+ delR=10*100.E2,
+ &
+
+# Input datasets
+ &PARM05
+# topoFile='topo.2f2_FM.bin',
+ &
